@@ -1,0 +1,17 @@
+{
+  "file_path": "app/routers/firebase.json",
+  "findings": [
+    {
+      "line": 4,
+      "vulnerability": "Exposure of private key which can lead to unauthorized access to the Firebase project.",
+      "code_snippet": "\"private_key\": \"-----BEGIN PRIVATE KEY-----\\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDAv/2sb+m9QLXb\\n/UYQfvo+ta6ra03N5pTPCYS1PKMFnictbDH0DZykUUeqT3ljWObHDfGwnwUhFJ3k\\nlfoKkKjfMqVIID4FQRieWDQTkwjgehXN+N6SjCY20Y6jBuE3qayymAdPFc1GD00X\n... (truncated for brevity)",
+      "recommendation": "Remove the private key from this file and instead utilize environment variables to keep sensitive information secure. Consider storing credentials in a secure configuration management service."
+    },
+    {
+      "line": 2,
+      "vulnerability": "Inclusion of service account details that could be exploited if the file is exposed.",
+      "code_snippet": "\"client_email\": \"firebase-adminsdk-d2v4s@otp-and-notification.iam.gserviceaccount.com\",",
+      "recommendation": "Ensure this file is not included in any public repository and restrict access to sensitive files. Use mechanisms to secure these configurations."
+    }
+  ]
+}

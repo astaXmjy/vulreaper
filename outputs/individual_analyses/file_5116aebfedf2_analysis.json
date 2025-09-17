@@ -1,0 +1,35 @@
+{
+  "file_path": "app/routers/user_places.py",
+  "findings": [
+    {
+      "line": 10,
+      "vulnerability": "HTTP 404 can expose the existence of a resource.",
+      "code_snippet": "if not place:\n    raise HTTPException(status_code=404, detail=\"Place not found\")",
+      "recommendation": "Use a more generic error message to prevent information leakage."
+    },
+    {
+      "line": 20,
+      "vulnerability": "Lacks checks for user authorization when adding places.",
+      "code_snippet": "@router.post(\"/addplace/{place_id}\")\ndef add_places(...):",
+      "recommendation": "Include checks to validate that the current_user has the authorization to add places."
+    },
+    {
+      "line": 39,
+      "vulnerability": "Input validation for radius is missing, which can lead to unexpected behavior.",
+      "code_snippet": "@router.get(\"/nearby_places/{radius}\")\ndef get_nearby_places(radius: float, ...):",
+      "recommendation": "Add validation for radius to ensure it is positive."
+    },
+    {
+      "line": 51,
+      "vulnerability": "No check for user existence before accessing user data.",
+      "code_snippet": "user = db.query(models.User).filter(models.User.id == current_user.id).first()\nif not user:\n    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=\"User not found\")",
+      "recommendation": "Ensure the existence of the user before attempting any operations."
+    },
+    {
+      "line": 68,
+      "vulnerability": "Directly using user input for geo-spatial calculations without validation.",
+      "code_snippet": "place_query = db.query(models.Place).filter(functions.ST_Distance(user.location, models.Place.location) <= radius)",
+      "recommendation": "Validate user location before executing spatial operations."
+    }
+  ]
+}

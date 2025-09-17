@@ -1,0 +1,115 @@
+scan_all_code_files_task:
+  description: >
+    PURPOSE: Provide a canonical, exhaustive index of EVERY candidate code/config file
+    in the target directory and prepare for individual file analysis tasks.
+
+    INSTRUCTIONS:
+    - Read the pre-generated file: outputs/all_code_files.json (already created by the pipeline).
+    - VERIFY it contains:
+      - "root": absolute path to the scan root
+      - "count": total number of files included  
+      - "files": an array with objects containing: { path, relative_path, extension, size_bytes, task_id }
+    - DO NOT rescan the filesystem and DO NOT drop or filter any entries.
+    - IMPORTANT: Re-emit EXACTLY the same JSON you read. No mutation, no reformatting.
+    - Validate that each file entry has a unique task_id for individual analysis.
+    - Print summary of files ready for individual analysis.
+
+    VALIDATION CHECKLIST:
+    ✓ Each file has required fields: file_path, relative_path, task_id, extension
+    ✓ Task IDs are unique across all files
+    ✓ File paths are normalized and accessible
+    ✓ Count matches array length
+
+    OUTPUT LOCATION: outputs/all_code_files.json (overwrite with identical content)
+  expected_output: >
+    The EXACT JSON content of outputs/all_code_files.json with validation that each file
+    is prepared for individual analysis with unique task identifiers.
+
+aggregate_all_vulnerabilities_task:
+  description: >
+    PURPOSE: Read ALL individual analysis JSON files from outputs/individual_analyses/ 
+    and consolidate them into a comprehensive vulnerability database with enhanced statistics.
+    
+    INSTRUCTIONS:
+    1. Use FileReadTool to read all *_analysis.json files from outputs/individual_analyses/
+    2. For each file, extract the findings array and file metadata
+    3. Combine all findings into a single list with enhanced categorization
+    4. Generate comprehensive statistics including:
+       - Total findings count
+       - Findings by file type/extension
+       - Most affected files
+       - Vulnerability type distribution
+    5. Add metadata about the analysis process
+    6. Output the consolidated results
+    
+    ERROR HANDLING:
+    - If directory doesn't exist, create empty results
+    - If individual files can't be read, skip them and continue
+    - Validate JSON structure before processing
+    - Handle malformed files gracefully
+    
+    OUTPUT FORMAT (JSON):
+    {
+      "metadata": {
+        "analysis_timestamp": "2024-01-01T12:00:00Z",
+        "total_files_analyzed": 50,
+        "total_findings": 100,
+        "successfully_processed_files": 48,
+        "failed_files": 2
+      },
+      "summary": {
+        "by_severity": {
+          "Critical": 5,
+          "High": 15,
+          "Medium": 30,
+          "Low": 40,
+          "Info": 10
+        },
+        "by_file_type": {
+          ".py": {"count": 25, "findings": 40},
+          ".js": {"count": 15, "findings": 30},
+          ".java": {"count": 10, "findings": 30}
+        },
+        "most_affected_files": [
+          {"file": "app/auth.py", "findings": 12},
+          {"file": "api/users.js", "findings": 8}
+        ]
+      },
+      "findings": [
+        // All findings from all individual analysis files with enhanced metadata
+        {
+          "id": "unique_finding_id",
+          "file_path": "relative/path/to/file",
+          "line": 10,
+          "vulnerability": "Sensitive information exposed",
+          "code_snippet": "if not utils.verify(user_credentials.password, user.password):",
+          "recommendation": "Implement better security practices",
+          "severity": "High",
+          "category": "Authentication",
+          "cwe": "CWE-798",
+          "owasp_category": "A02:2021-Cryptographic Failures"
+        }
+      ]
+    }
+  expected_output: >
+    A comprehensive JSON file containing all findings from individual analysis files
+    with enhanced statistics, categorization, and metadata.
+
+
+generate_markdown_report_task:
+  description: >
+    Create a security report using the vulnerability analysis data. Include:
+    - Executive summary of key findings
+    - All vulnerabilities found with details
+    - Analysis of patterns and risks
+    - Recommendations for fixing issues
+    
+    Use markdown formatting and make it easy to read.
+  expected_output: >
+    A clean markdown report with:
+    - Summary of security assessment results
+    - Complete list of security vulnerabilities
+    - Analysis insights and risk assessment
+    - Actionable recommendations for remediation
+    - Proper section headers and formatting
+

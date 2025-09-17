@@ -1,0 +1,35 @@
+{
+  "file_path": "app/schemas.py",
+  "findings": [
+    {
+      "line": 7,
+      "vulnerability": "Lack of validation for mobile_no can lead to unexpected results.",
+      "code_snippet": "mobile_no: str",
+      "recommendation": "Implement a validator for mobile_no to ensure correct formats."
+    },
+    {
+      "line": 14,
+      "vulnerability": "Password field can lead to storage of plaintext passwords.",
+      "code_snippet": "password: str",
+      "recommendation": "Use a hashing function to hash passwords before storage."
+    },
+    {
+      "line": 55,
+      "vulnerability": "Possible SQL injection due to lack of validation on name and address.",
+      "code_snippet": "name: str\naddress: str",
+      "recommendation": "Ensure input is sanitized and validated properly."
+    },
+    {
+      "line": 66,
+      "vulnerability": "Lack of validation for time fields can lead to logical errors.",
+      "code_snippet": "start_time: time\nend_time: time",
+      "recommendation": "Implement validators for time fields."
+    },
+    {
+      "line": 89,
+      "vulnerability": "Inconsistency possible in events association with places.",
+      "code_snippet": "events: List[EventsOut]",
+      "recommendation": "Add integrity checks before associating events."
+    }
+  ]
+}

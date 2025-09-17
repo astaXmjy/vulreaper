@@ -1,0 +1,35 @@
+{
+  "file_path": "app/routers/users.py",
+  "findings": [
+    {
+      "line": 58,
+      "vulnerability": "No validation of geolocation data can lead to incorrect user location.",
+      "code_snippet": "long = geo_data[\"results\"][0][\"bbox\"][\"lon1\"]\nlat = geo_data[\"results\"][0][\"bbox\"][\"lat1\"]",
+      "recommendation": "Implement validation checks for geolocation data returned from the API."
+    },
+    {
+      "line": 24,
+      "vulnerability": "Storing user passwords unhashed can lead to security breaches.",
+      "code_snippet": "user.password = hashed_password",
+      "recommendation": "Ensure that user passwords are hashed using a strong algorithm before storage."
+    },
+    {
+      "line": 12,
+      "vulnerability": "Sensitive data exposure through error messages.",
+      "code_snippet": "raise HTTPException(status_code=400, detail=\"Error fetching geolocation data\")",
+      "recommendation": "Provide generic error messages to prevent leaking sensitive information."
+    },
+    {
+      "line": 41,
+      "vulnerability": "Potential for SQL injection through user input.",
+      "code_snippet": "user = db.query(models.User).filter(models.User.id == current_user.id).first()",
+      "recommendation": "Use parameterized queries to prevent SQL injection attacks."
+    },
+    {
+      "line": 50,
+      "vulnerability": "Missing checks for user existence can lead to null reference exceptions.",
+      "code_snippet": "if not user:\n    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=\"User with id: {id} does not exit\")",
+      "recommendation": "Validate the existence of objects before attempting operations."
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "root": "C:\\Users\\Ashish Yadav\\OneDrive\\Desktop\\my_place",
+  "count": 15,
+  "files": [
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/.gitignore",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/.gitignore",
+      "relative_path": ".gitignore",
+      "extension": "",
+      "size_bytes": 41,
+      "task_id": "file_75eaa8b62627"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/.vscode/PythonImportHelper-v2-Completion.json",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/.vscode/PythonImportHelper-v2-Completion.json",
+      "relative_path": ".vscode/PythonImportHelper-v2-Completion.json",
+      "extension": ".json",
+      "size_bytes": 56332,
+      "task_id": "file_2b437e9ce88b"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/__init__.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/__init__.py",
+      "relative_path": "app/__init__.py",
+      "extension": ".py",
+      "size_bytes": 0,
+      "task_id": "file_a4d1d9331ae7"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/database.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/database.py",
+      "relative_path": "app/database.py",
+      "extension": ".py",
+      "size_bytes": 520,
+      "task_id": "file_8e6b95653fd1"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/main.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/main.py",
+      "relative_path": "app/main.py",
+      "extension": ".py",
+      "size_bytes": 765,
+      "task_id": "file_c49bea47000b"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/models.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/models.py",
+      "relative_path": "app/models.py",
+      "extension": ".py",
+      "size_bytes": 3502,
+      "task_id": "file_23288fd34ace"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/oauth2.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/oauth2.py",
+      "relative_path": "app/oauth2.py",
+      "extension": ".py",
+      "size_bytes": 1612,
+      "task_id": "file_ea82664b6427"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/auth.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/auth.py",
+      "relative_path": "app/routers/auth.py",
+      "extension": ".py",
+      "size_bytes": 1170,
+      "task_id": "file_f479c7d72f71"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/firebase.json",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/firebase.json",
+      "relative_path": "app/routers/firebase.json",
+      "extension": ".json",
+      "size_bytes": 2415,
+      "task_id": "file_b83a34532e5c"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/places.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/places.py",
+      "relative_path": "app/routers/places.py",
+      "extension": ".py",
+      "size_bytes": 15801,
+      "task_id": "file_7f72770ade78"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/user_places.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/user_places.py",
+      "relative_path": "app/routers/user_places.py",
+      "extension": ".py",
+      "size_bytes": 3158,
+      "task_id": "file_5116aebfedf2"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/users.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/routers/users.py",
+      "relative_path": "app/routers/users.py",
+      "extension": ".py",
+      "size_bytes": 5671,
+      "task_id": "file_a9159316d56e"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/schemas.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/schemas.py",
+      "relative_path": "app/schemas.py",
+      "extension": ".py",
+      "size_bytes": 3312,
+      "task_id": "file_c2aa6a557745"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/utils.py",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/app/utils.py",
+      "relative_path": "app/utils.py",
+      "extension": ".py",
+      "size_bytes": 294,
+      "task_id": "file_dc28ca64c998"
+    },
+    {
+      "file_path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/yes",
+      "path": "C:/Users/Ashish Yadav/OneDrive/Desktop/my_place/yes",
+      "relative_path": "yes",
+      "extension": "",
+      "size_bytes": 381,
+      "task_id": "file_f5f4d2fd3da2"
+    }
+  ],
+  "timestamp": "nt.times_result(user=3.984375, system=2.578125, children_user=0.0, children_system=0.0, elapsed=0.0)"
+}

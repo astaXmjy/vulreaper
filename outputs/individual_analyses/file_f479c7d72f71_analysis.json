@@ -1,0 +1,35 @@
+{
+  "file_path": "app/routers/auth.py",
+  "findings": [
+    {
+      "line": 10,
+      "vulnerability": "Plain text passwords in the authentication process.",
+      "code_snippet": "if not utils.verify(user_credentials.password, user.password):",
+      "recommendation": "Ensure that passwords are hashed properly before being stored."
+    },
+    {
+      "line": 8,
+      "vulnerability": "Assumes unique mobile numbers which can lead to incorrect authentication.",
+      "code_snippet": "user = ( db.query(models.User).filter(models.User.mobile_no == user_credentials.username).first() )",
+      "recommendation": "Implement checks to validate mobile numbers are unique."
+    },
+    {
+      "line": 15,
+      "vulnerability": "Generic error messages can improve brute force attack chances.",
+      "code_snippet": "raise HTTPException( status_code=status.HTTP_404_NOT_FOUND, detail=f\"Invalid Credentials\" )",
+      "recommendation": "Use generic error messages to obfuscate valid users."
+    },
+    {
+      "line": 20,
+      "vulnerability": "Access tokens are generated without expiration conditions.",
+      "code_snippet": "access_token = oauth2.create_acess_token(data={\"user_id\": user.id})",
+      "recommendation": "Include token expiration and validation to prevent replay attacks."
+    },
+    {
+      "line": 14,
+      "vulnerability": "Utilizing username input directly can allow injection attacks.",
+      "code_snippet": "user_credentials: OAuth2PasswordRequestForm = Depends(),",
+      "recommendation": "Sanitize and validate all inputs to prevent injection attacks."
+    }
+  ]
+}

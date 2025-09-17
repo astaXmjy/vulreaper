@@ -1,0 +1,37 @@
+```json
+{
+  "file_path": "app/oauth2.py",
+  "findings": [
+    {
+      "line": 7,
+      "vulnerability": "Hardcoded secret key, posing risk if exposed.",
+      "code_snippet": "SECRET_KEY = \"kaizokuoniorewanaru\"",
+      "recommendation": "Use environment variables to store sensitive keys instead of hardcoding."
+    },
+    {
+      "line": 8,
+      "vulnerability": "Fixed token expiration may not suffice for all applications.",
+      "code_snippet": "ACCESS_TOKEN_EXPIRE_MINUTES = 30",
+      "recommendation": "Make expiration duration configurable via environment variables."
+    },
+    {
+      "line": 22,
+      "vulnerability": "JWT verification does not specify cause of failure, which may lead to denial of service.",
+      "code_snippet": "except JWTError:\n    raise credentials_exception",
+      "recommendation": "Log errors on token verification but ensure user-friendly messages are returned."
+    },
+    {
+      "line": 38,
+      "vulnerability": "Dependency injection may lead to database connection leaks if not configured properly.",
+      "code_snippet": "db: Session = Depends(get_db)",
+      "recommendation": "Ensure proper lifecycle management of database sessions."
+    },
+    {
+      "line": 17,
+      "vulnerability": "Token payload includes unnecessary attributes, exposing logic.",
+      "code_snippet": "to_encode.update({\"exp\": expire, \"msg\": \"asta\"})",
+      "recommendation": "Only include essential identifiers in the JWT payload."
+    }
+  ]
+}
+```

@@ -1,0 +1,35 @@
+{
+  "file_path": "app/routers/places.py",
+  "findings": [
+    {
+      "line": 7,
+      "vulnerability": "Hardcoded Firebase private key poses risk if exposed.",
+      "code_snippet": "cred = credentials.Certificate(\"app/routers/firebase.json\")",
+      "recommendation": "Use environment variables to store sensitive information like API keys."
+    },
+    {
+      "line": 11,
+      "vulnerability": "No access control for create_place function.",
+      "code_snippet": "@router.post(\"/places\", status_code=status.HTTP_201_CREATED, response_model=schemas.PlaceOut)",
+      "recommendation": "Implement authentication checks to ensure only authorized users can create places."
+    },
+    {
+      "line": 34,
+      "vulnerability": "Potential for SQL injection through user input.",
+      "code_snippet": ".filter(models.Place.name.ilike(f\"%{query}%\"))",
+      "recommendation": "Use parameterized queries to prevent SQL injection attacks."
+    },
+    {
+      "line": 78,
+      "vulnerability": "Lack of error handling when sending notifications can expose sensitive data.",
+      "code_snippet": "response = messaging.send_each_for_multicast(message)",
+      "recommendation": "Implement error handling to manage notification failures properly."
+    },
+    {
+      "line": 91,
+      "vulnerability": "No checks for existence of the event can lead to unhandled exceptions.",
+      "code_snippet": "event_place = db.query(models.Event).filter(models.Event.place_id == place_id).order_by(asc(models.Event.start_time)).all()",
+      "recommendation": "Add checks to verify existence of events before querying to avoid exceptions."
+    }
+  ]
+}

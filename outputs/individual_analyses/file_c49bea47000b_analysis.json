@@ -1,0 +1,23 @@
+{
+  "file_path": "app/main.py",
+  "findings": [
+    {
+      "line": 9,
+      "vulnerability": "CORS configuration allows requests from all origins, which can lead to security issues.",
+      "code_snippet": "allow_origins=[\"*\"],",
+      "recommendation": "Specify allowed origins in production to limit exposure."
+    },
+    {
+      "line": 10,
+      "vulnerability": "Allowing all HTTP methods exposes unnecessary APIs.",
+      "code_snippet": "allow_methods=[\"*\"],",
+      "recommendation": "Restrict allowed methods to only those necessary for the application."
+    },
+    {
+      "line": 11,
+      "vulnerability": "Accepting all headers increases risk of processing malicious headers.",
+      "code_snippet": "allow_headers=[\"*\"],",
+      "recommendation": "Specify necessary headers explicitly to reduce risk exposure."
+    }
+  ]
+}

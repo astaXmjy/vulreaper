@@ -1,0 +1,23 @@
+{
+  "file_path": "app/utils.py",
+  "findings": [
+    {
+      "line": 4,
+      "vulnerability": "Use of weak hashing mechanism can expose passwords to attacks.",
+      "code_snippet": "pwd_context = CryptContext(schemes=[\"bcrypt\"], deprecated=\"auto\")",
+      "recommendation": "Use stronger algorithms such as Argon2 for more secure password hashing."
+    },
+    {
+      "line": 7,
+      "vulnerability": "Potential absence of effective salting may allow for rainbow table attacks.",
+      "code_snippet": "def hash(password: str):\n    return pwd_context.hash(password)",
+      "recommendation": "Utilize built-in salting mechanisms with the hashing library to enhance security."
+    },
+    {
+      "line": 10,
+      "vulnerability": "Error handling in the verify function may lead to security risks.",
+      "code_snippet": "def verify(plain_password, hashed_password):\n    return pwd_context.verify(plain_password, hashed_password)",
+      "recommendation": "Implement proper exception handling to manage verification failures."
+    }
+  ]
+}

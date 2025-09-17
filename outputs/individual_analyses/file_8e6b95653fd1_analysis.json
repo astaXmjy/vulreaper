@@ -1,0 +1,23 @@
+{
+  "file_path": "app/database.py",
+  "findings": [
+    {
+      "line": 4,
+      "vulnerability": "Potential exposure of sensitive data through environment variables if .env is not managed properly.",
+      "code_snippet": "load_dotenv()",
+      "recommendation": "Ensure the .env file is added to .gitignore and validate that environment variables are set correctly."
+    },
+    {
+      "line": 10,
+      "vulnerability": "No error handling for potential failure in database connection.",
+      "code_snippet": "engine = create_engine(SQLALCHEMY_DATABASE_URL)",
+      "recommendation": "Implement error handling for database connection to manage missing or malformed URLs."
+    },
+    {
+      "line": 17,
+      "vulnerability": "Potential resource leakage due to improper session management.",
+      "code_snippet": "def get_db():\n    db = SessionLocal()\n    try:\n        yield db\n    finally:\n        db.close()",
+      "recommendation": "Ensure that all calls to get_db() are properly used within a context manager to prevent leaving sessions open."
+    }
+  ]
+}

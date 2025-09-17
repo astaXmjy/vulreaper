@@ -1,0 +1,17 @@
+{
+  "file_path": "yes",
+  "findings": [
+    {
+      "line": 1,
+      "vulnerability": "Exposing branch information may aid unauthorized users in targeted attacks.",
+      "code_snippet": "# On branch master",
+      "recommendation": "Avoid exposing branch names in shared or public environments."
+    },
+    {
+      "line": 12,
+      "vulnerability": "List of modified files could indicate potential attack vectors.",
+      "code_snippet": "#	modified:   app/models.py\n#	modified:   app/routers/places.py\n#	modified:   app/routers/users.py\n#	modified:   app/schemas.py",
+      "recommendation": "Limit the exposure of changes and modified files to the development team only."
+    }
+  ]
+}
